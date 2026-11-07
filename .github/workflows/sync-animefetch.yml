@@ -1,0 +1,33 @@
+# The fork's "animefetch" branch: upstream master plus this fork's mapping fixes still waiting as upstream PRs.
+# animefetch reads anime-list-master.xml from this branch, so a fix is used at once instead of after the upstream
+# merge. Daily: master follows upstream (fast-forward; nothing is ever committed to it), then master is merged
+# into this branch. An upstream merge of one of our PRs merges cleanly (the same change); a conflict fails the
+# run - resolve it by hand.
+name: Sync animefetch branch
+on:
+  schedule:
+    - cron: '17 9 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    if: ${{ github.repository == 'dixit92/anime-lists' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: master follows upstream
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/merge-upstream" -f branch=master
+      - uses: actions/checkout@v7
+        with:
+          ref: animefetch
+          fetch-depth: 0
+      - name: Merge master into animefetch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin master
+          git merge --no-edit origin/master
+          xmllint --noout anime-list-master.xml
+          git push origin HEAD:animefetch
