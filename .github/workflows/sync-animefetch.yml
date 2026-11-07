@@ -29,5 +29,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch origin master
           git merge --no-edit origin/master
-          xmllint --noout anime-list-master.xml
+          python3 -c "import xml.etree.ElementTree as E; E.parse('anime-list-master.xml')"
           git push origin HEAD:animefetch
