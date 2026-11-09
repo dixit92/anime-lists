@@ -29207,8 +29207,11 @@
   <anime anidbid="10537" tvdbid="279986" defaulttvdbseason="1" episodeoffset="" tmdbtv="61421" tmdbseason="1" tmdboffset="" tmdbid="" imdbid="">
     <name>Zankyou no Terror</name>
   </anime>
-  <anime anidbid="10538" tvdbid="281275" defaulttvdbseason="1" episodeoffset="" tmdbtv="69367" tmdbseason="1" tmdboffset="" tmdbid="" imdbid="">
+  <anime anidbid="10538" tvdbid="281275" defaulttvdbseason="1" episodeoffset="-1" tmdbtv="69367" tmdbseason="1" tmdboffset="" tmdbid="" imdbid="">
     <name>Saenai Heroine no Sodatekata</name>
+    <mapping-list>
+      <mapping anidbseason="1" tvdbseason="0">;1-1;</mapping>
+    </mapping-list>
   </anime>
   <anime anidbid="10539" tvdbid="279830" defaulttvdbseason="1" episodeoffset="" tmdbtv="61663" tmdbseason="1" tmdboffset="" tmdbid="" imdbid="">
     <name>Shigatsu wa Kimi no Uso</name>
@@ -31063,6 +31066,9 @@
   </anime>
   <anime anidbid="11221" tvdbid="281275" defaulttvdbseason="2" episodeoffset="" tmdbtv="69367" tmdbseason="2" tmdboffset="" tmdbid="" imdbid="">
     <name>Saenai Heroine no Sodatekata Flat</name>
+    <mapping-list>
+      <mapping anidbseason="0" tvdbseason="0">;1-2;</mapping>
+    </mapping-list>
   </anime>
   <anime anidbid="11223" tvdbid="284133" defaulttvdbseason="2" episodeoffset="" tmdbtv="61445" tmdbseason="2" tmdboffset="" tmdbid="" imdbid="">
     <name>Shingeki no Bahamut: Virgin Soul</name>
