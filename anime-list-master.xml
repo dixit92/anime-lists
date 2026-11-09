@@ -49749,6 +49749,9 @@
   </anime>
   <anime anidbid="17947" tvdbid="305089" defaulttvdbseason="3" episodeoffset="" tmdbtv="65942" tmdbseason="1" tmdboffset="50" tmdbid="" imdbid="">
     <name>Re:Zero kara Hajimeru Isekai Seikatsu (2024)</name>
+    <mapping-list>
+      <mapping anidbseason="0" tvdbseason="0" start="1" end="16" offset="54"/>
+    </mapping-list>
   </anime>
   <anime anidbid="17948" tvdbid="432838" defaulttvdbseason="1" episodeoffset="" tmdbtv="240399" tmdbseason="1" tmdboffset="" tmdbid="" imdbid="">
     <name>Rinkai!</name>
