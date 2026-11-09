@@ -23,11 +23,17 @@ jobs:
         with:
           ref: animefetch
           fetch-depth: 0
-      - name: Merge master into animefetch
+      - name: Merge master and the open PR branches into animefetch
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch origin master
           git merge --no-edit origin/master
+          # a PR updated after review (Dear Friend's TMDB / IMDb ids, 2026-11-09) is used here too
+          for b in $(gh pr list --repo Anime-Lists/anime-lists --author dixit92 --state open --json headRefName --jq '.[].headRefName'); do
+            git fetch origin "$b" && git merge --no-edit "origin/$b"
+          done
           python3 -c "import xml.etree.ElementTree as E; E.parse('anime-list-master.xml')"
           git push origin HEAD:animefetch
